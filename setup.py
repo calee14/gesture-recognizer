@@ -8,10 +8,13 @@ setuptools.setup(
 	version="0.0.1",
 	author="capjedi",
 	author_email="calee14@s.sfusd.edu",
+	license='MIT',
 	description="A basic gesture recognizer module for a hackathon.",
 	long_description=long_description,
 	long_description_content_type="text/markdown",
 	url="https://github.com/calee14/gesture-recognizer",
+	install_requires=[
+          'need packages here',],
 	packages=setuptools.find_packages(),
 	classifiers=[
 		"Programming Language :: Python :: 3",
