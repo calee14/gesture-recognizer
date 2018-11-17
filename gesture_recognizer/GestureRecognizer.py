@@ -25,15 +25,19 @@ class GestureRecognizer(object):
 		# y_dir: 1 - up, -1 - down
 		self.y_dir = 0
 	def start_recognizing(self, interval=1):
-		"""
-        :type interval: int
-        :param interval: Check interval, in seconds
-        """
-        self.interval = interval
+		'''
+		Threading
+		The recognize_fist method will be started and it will run in the background
+		until the application exits.
+		:type interval: int
+		:param interval: Check interval, in seconds
+		'''
+		self.interval = interval
 
-        thread = threading.Thread(target=self.recognize_fist, args=())
-        thread.daemon = True                            # Daemonize thread
-        thread.start()                                  # Start the execution
+		thread = threading.Thread(target=self.recognize_fist, args=())
+		thread.daemon = True # Daemonize thread
+		thread.start() # Start the execution
+
 	def recognize_gesture(self, hand_pos=None):
 		# if there is no previous position set the current one to it
 		if self.prev_pos is None:
@@ -58,6 +62,9 @@ class GestureRecognizer(object):
 		# update the previous position
 		self.prev_pos = hand_pos
 	def recognize_fist(self):
+		'''
+		Method that runs forever
+		'''
 		# start video capturing
 		cap = cv2.VideoCapture(0)
 
@@ -87,6 +94,7 @@ class GestureRecognizer(object):
 			k = cv2.waitKey(30) & 0xff
 			if k == 27:
 				break
+
 			time.sleep(self.interval)
 
 		# stop video and close windows
