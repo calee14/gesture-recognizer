@@ -1,1 +1,1 @@
-gesture-recognizer
+gesture_recognizer
