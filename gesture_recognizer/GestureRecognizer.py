@@ -2,8 +2,10 @@
 import cv2
 import numpy
 import os
+import threading
+import time
 
-class GestureRecognizer():
+class GestureRecognizer(object):
 	def __init__(self):
 		# retrieve the cascades
 		# directory path
@@ -22,6 +24,16 @@ class GestureRecognizer():
 		self.x_dir = 0
 		# y_dir: 1 - up, -1 - down
 		self.y_dir = 0
+	def start_recognizing(self, interval=1):
+		"""
+        :type interval: int
+        :param interval: Check interval, in seconds
+        """
+        self.interval = interval
+
+        thread = threading.Thread(target=self.recognize_fist, args=())
+        thread.daemon = True                            # Daemonize thread
+        thread.start()                                  # Start the execution
 	def recognize_gesture(self, hand_pos=None):
 		# if there is no previous position set the current one to it
 		if self.prev_pos is None:
@@ -75,6 +87,7 @@ class GestureRecognizer():
 			k = cv2.waitKey(30) & 0xff
 			if k == 27:
 				break
+			time.sleep(self.interval)
 
 		# stop video and close windows
 		cap.release()
