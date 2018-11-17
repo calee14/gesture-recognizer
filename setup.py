@@ -15,9 +15,7 @@ setuptools.setup(
 	url="https://github.com/calee14/gesture-recognizer",
 	install_requires=[
           'opencv',
-          'numpy',
-          'py-opencv',
-          'libopencv'],
+          'numpy',],
 	packages=setuptools.find_packages(),
 	classifiers=[
 		"Programming Language :: Python :: 3",
