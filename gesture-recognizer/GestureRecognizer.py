@@ -18,6 +18,10 @@ class GestureRecognizer():
 		prev_pos = self.prev_pos
 		x_dif = prev_pos[0] - hand_pos[0]
 		y_dif = prev_pos[1] - hand_pos[1]
+		# if the hand is still then don't set direction
+		if abs(x_dif) < 20 and abs(y_dif) < 20:
+			self.prev_pos = hand_pos
+			return
 		# scale it below 1
 		while abs(x_dif) > 1.0 or abs(y_dif) > 1.0:
 			x_dif /= 2.0
