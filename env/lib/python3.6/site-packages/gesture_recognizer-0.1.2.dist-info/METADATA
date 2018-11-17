@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: gesture-recognizer
+Version: 0.1.2
+Summary: A basic gesture recognizer module for a hackathon.
+Home-page: https://github.com/calee14/gesture-recognizer
+Author: capjedi
+Author-email: calee14@s.sfusd.edu
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: opencv-python
+Requires-Dist: numpy
+
+# gesture-recognizer
+This is a python package designed to recognize basic hand gestures. This project is for SMHacks II.
+
+
