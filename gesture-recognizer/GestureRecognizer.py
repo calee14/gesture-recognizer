@@ -8,7 +8,9 @@ class GestureRecognizer():
 		self.fist_cascade = cv2.CascadeClassifier('haarcascades/haarcascade_fist.xml')
 		self.palm_cascade = cv2.CascadeClassifier('haarcascades/haarcascade_palm.xml')
 		self.prev_pos = None
+		# x_dir: 1 - right, -1 - left
 		self.x_dir = 0
+		# y_dir: 1 - up, -1 - down
 		self.y_dir = 0
 	def recognize_gesture(self, hand_pos=None):
 		# if there is no previous position set the current one to it
@@ -29,8 +31,8 @@ class GestureRecognizer():
 		# save these values to the class
 		self.x_dir = x_dif
 		self.y_dir = y_dif
-		print("x:", x_dif)
-		print("y:", y_dif)
+		# print("x:", x_dif)
+		# print("y:", y_dif)
 		# update the previous position
 		self.prev_pos = hand_pos
 	def recognize_fist(self):
@@ -39,6 +41,16 @@ class GestureRecognizer():
 
 		# code snippet to recognize 
 		while True:
+			if self.x_dir > 0:
+				print("moving right")
+			else:
+				print("moving left")
+			if self.y_dir > 0:
+				print("moving up")
+			else:
+				print("moving down")
+			print("x:", self.x_dir)
+			print("y:", self.y_dir)
 			ret, img = cap.read()
 			gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 			hands = self.fist_cascade.detectMultiScale(gray)
