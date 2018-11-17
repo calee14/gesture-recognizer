@@ -1,12 +1,22 @@
 # importing requied modules
 import cv2
 import numpy
+import os
 
 class GestureRecognizer():
 	def __init__(self):
 		# retrieve the cascades
-		self.fist_cascade = cv2.CascadeClassifier('haarcascades/haarcascade_fist.xml')
-		self.palm_cascade = cv2.CascadeClassifier('haarcascades/haarcascade_palm.xml')
+		# directory path
+		dir_path = os.path.dirname(os.path.realpath(__file__))
+		# make the path for the fist dataset
+		filename_fist = 'haarcascades/haarcascade_fist.xml'
+		full_path_fist = "%s/%s" % (dir_path, filename_fist)
+		self.fist_cascade = cv2.CascadeClassifier(full_path_fist)
+		# make the path for the palm dataset
+		filename_palm = 'haarcascades/haarcascade_palm.xml'
+		full_path_palm = "%s/%s" % (dir_path, filename_palm)
+		self.palm_cascade = cv2.CascadeClassifier(full_path_palm)
+		# previous hand position so we can analyze the change
 		self.prev_pos = None
 		# x_dir: 1 - right, -1 - left
 		self.x_dir = 0
