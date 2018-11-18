@@ -8,11 +8,4 @@ include LICENSE.txt
 include *.xml
 
 # Include data (brute force)
-recursive-include data *
-recursive-include haarcascade *
-recursive-include haarcascade_fist.xml *
-recursive-include haarcascade_palm.xml *
-include aGest.xml*
-include haarcascade_fist.xml*
-include haarcascade_palm.xml*
-include aGest.xml*
+recursive-include gesture_recognizer *
