@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
 	name="gesture-recognizer",
-	version="0.3.8",
+	version="0.3.9",
 	author="capjedi",
 	author_email="calee14@s.sfusd.edu",
 	license='MIT',
