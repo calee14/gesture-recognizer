@@ -7,9 +7,9 @@ import time
 import importlib.util
 
 class GestureRecognizer(object):
-	def __init__(self):
-		pass
-
+	def __init__(self, interval=1.0/30.0, print_pos=True):
+		self.interval = interval
+		self.print_pos = print_pos
 	def start_recognizing(self):
 
 		# import the class
@@ -19,7 +19,7 @@ class GestureRecognizer(object):
 		spec = importlib.util.spec_from_file_location("FistRecognizer", full_path)
 		gesture_recognition = importlib.util.module_from_spec(spec)
 		spec.loader.exec_module(gesture_recognition)
-		FistRecognizerService = gesture_recognition.FistRecognizer()
+		FistRecognizerService = gesture_recognition.FistRecognizer(interval, print_pos)
 
 		# threading code
 		thread = threading.Thread(target=FistRecognizerService.recognize_fist, args=())
