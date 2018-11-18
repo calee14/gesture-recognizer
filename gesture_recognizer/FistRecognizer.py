@@ -3,7 +3,14 @@ import os
 import time
 
 class FistRecognizer(object):
-	def __init__(self, interval=1):
+	def __init__(self, interval=1.0/30.0):
+		'''
+		Threading
+		The recognize_fist method will be started and it will run in the background
+		until the application exits.
+		:type interval: int
+		:param interval: Check interval, in seconds
+		'''
 		self.interval = interval
 		# retrieve the cascades
 		# directory path
@@ -31,7 +38,7 @@ class FistRecognizer(object):
 		x_dif = prev_pos[0] - hand_pos[0]
 		y_dif = prev_pos[1] - hand_pos[1]
 		# if the hand is still then don't set direction
-		if abs(x_dif) < 20 and abs(y_dif) < 20:
+		if abs(x_dif) < 30 and abs(y_dif) < 30:
 			self.prev_pos = hand_pos
 			return
 		# scale it below 1

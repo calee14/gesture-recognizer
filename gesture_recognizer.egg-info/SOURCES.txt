@@ -2,6 +2,7 @@ LICENSE.txt
 MANIFEST.in
 README.md
 setup.py
+gesture_recognizer/FistRecognizer.py
 gesture_recognizer/GestureRecognizer.py
 gesture_recognizer/__init__.py
 gesture_recognizer/test.py
