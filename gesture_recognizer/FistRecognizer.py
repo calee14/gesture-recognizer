@@ -63,7 +63,7 @@ class FistRecognizer(object):
 
 		# code snippet to recognize 
 		while True:
-			if print_pos:
+			if self.print_pos:
 				if self.x_dir > 0:
 					print("moving right")
 				else:
