@@ -42,6 +42,8 @@ class FistRecognizer(object):
 		# if the hand is still then don't set direction
 		if abs(x_dif) < 30 and abs(y_dif) < 30:
 			self.prev_pos = hand_pos
+			self.x_dir = 0
+			self.y_dir = 0
 			return
 		# scale it below 1
 		while abs(x_dif) > 1.0 or abs(y_dif) > 1.0:
@@ -64,7 +66,9 @@ class FistRecognizer(object):
 		# code snippet to recognize 
 		while True:
 			if self.print_pos:
-				if self.x_dir > 0:
+				if self.x_dir == 0 and self.y_dir == 0:
+					print("still")
+				elif self.x_dir > 0:
 					print("moving right")
 				else:
 					print("moving left")
