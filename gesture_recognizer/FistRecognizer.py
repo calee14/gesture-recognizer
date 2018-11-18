@@ -14,15 +14,14 @@ class FistRecognizer(object):
 		self.interval = interval
 		# retrieve the cascades
 		# directory path
-		dir_path = os.getcwd()
+		dir_path = os.path.dirname(os.path.realpath(__file__))
 		print(dir_path)
-		print(os.path.basename(dir_path))
 		# make the path for the fist dataset
-		filename_fist = 'haarcascades/haarcascade_fist.xml'
+		filename_fist = 'haarcascade_fist.xml'
 		full_path_fist = "%s/%s" % (dir_path, filename_fist)
 		self.fist_cascade = cv2.CascadeClassifier(full_path_fist)
 		# make the path for the palm dataset
-		filename_palm = 'haarcascades/haarcascade_palm.xml'
+		filename_palm = 'haarcascade_palm.xml'
 		full_path_palm = "%s/%s" % (dir_path, filename_palm)
 		self.palm_cascade = cv2.CascadeClassifier(full_path_palm)
 		# previous hand position so we can analyze the change

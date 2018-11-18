@@ -1,6 +1,6 @@
-from gesture_recognizer import GestureRecognizer
+from gesture_recognizer import GestureRecognizer as gr
 import time
-rec = GestureRecognizer.GestureRecognizer()
+rec = gr.GestureRecognizer()
 rec.start_recognizing()
 time.sleep(10)
 time.sleep(10)

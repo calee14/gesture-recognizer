@@ -2,3 +2,4 @@ build/*
 dist/*
 env/*
 gesture_recognizer.egg-info/*
+*.pyc

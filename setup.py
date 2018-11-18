@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
 	name="gesture-recognizer",
-	version="0.3.1",
+	version="0.3.4",
 	author="capjedi",
 	author_email="calee14@s.sfusd.edu",
 	license='MIT',
@@ -17,6 +17,7 @@ setuptools.setup(
           'opencv-python',
           'numpy',],
 	packages=setuptools.find_packages(),
+	include_package_data = True,
 	classifiers=[
 		"Programming Language :: Python :: 3",
 		"License :: OSI Approved :: MIT License",
