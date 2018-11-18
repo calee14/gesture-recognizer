@@ -14,7 +14,9 @@ class FistRecognizer(object):
 		self.interval = interval
 		# retrieve the cascades
 		# directory path
-		dir_path = os.path.dirname(os.path.realpath(__file__))
+		dir_path = os.getcwd()
+		print(dir_path)
+		print(os.path.basename(dir_path))
 		# make the path for the fist dataset
 		filename_fist = 'haarcascades/haarcascade_fist.xml'
 		full_path_fist = "%s/%s" % (dir_path, filename_fist)
