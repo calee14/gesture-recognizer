@@ -19,7 +19,7 @@ class GestureRecognizer(object):
 		spec = importlib.util.spec_from_file_location("FistRecognizer", full_path)
 		gesture_recognition = importlib.util.module_from_spec(spec)
 		spec.loader.exec_module(gesture_recognition)
-		FistRecognizerService = gesture_recognition.FistRecognizer(interval, print_pos)
+		FistRecognizerService = gesture_recognition.FistRecognizer(self.interval, self.print_pos)
 
 		# threading code
 		thread = threading.Thread(target=FistRecognizerService.recognize_fist, args=())
