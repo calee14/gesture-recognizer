@@ -3,7 +3,7 @@ import os
 import time
 
 class FistRecognizer(object):
-	def __init__(self, interval=1.0/30.0):
+	def __init__(self, interval=1.0/30.0, print_pos=True):
 		'''
 		Threading
 		The recognize_fist method will be started and it will run in the background
@@ -30,6 +30,7 @@ class FistRecognizer(object):
 		self.x_dir = 0
 		# y_dir: 1 - up, -1 - down
 		self.y_dir = 0
+		self.print_pos = print_pos
 	def recognize_gesture(self, hand_pos=None):
 		# if there is no previous position set the current one to it
 		if self.prev_pos is None:
@@ -62,16 +63,17 @@ class FistRecognizer(object):
 
 		# code snippet to recognize 
 		while True:
-			if self.x_dir > 0:
-				print("moving right")
-			else:
-				print("moving left")
-			if self.y_dir > 0:
-				print("moving up")
-			else:
-				print("moving down")
-			print("x:", self.x_dir)
-			print("y:", self.y_dir)
+			if print_pos:
+				if self.x_dir > 0:
+					print("moving right")
+				else:
+					print("moving left")
+				if self.y_dir > 0:
+					print("moving up")
+				else:
+					print("moving down")
+				print("x:", self.x_dir)
+				print("y:", self.y_dir)
 			ret, img = cap.read()
 			gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 			hands = self.fist_cascade.detectMultiScale(gray)
